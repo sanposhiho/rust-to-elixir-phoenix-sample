@@ -17,6 +17,7 @@ defmodule RustPhxSampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/sample", SampleController, :sample
   end
 
   # Other scopes may use custom stacks.

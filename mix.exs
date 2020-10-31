@@ -7,7 +7,8 @@ defmodule RustPhxSample.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix, :gettext, :rustler] ++ Mix.compilers(), #rustlerの追加
+      rustler_crates: rustler_crates(), #追加
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -41,7 +42,8 @@ defmodule RustPhxSample.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:rustler, "~> 0.21.0"}
     ]
   end
 
@@ -55,5 +57,12 @@ defmodule RustPhxSample.MixProject do
     [
       setup: ["deps.get", "cmd npm install --prefix assets"]
     ]
+  end
+
+    defp rustler_crates() do
+    [rustphxsampleweb_samplecontroller: [
+      path: "native/rustphxsampleweb_samplecontroller",
+      mode: (if Mix.env == :prod, do: :release, else: :debug),
+    ]]
   end
 end
