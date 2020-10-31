@@ -59,10 +59,13 @@ defmodule RustPhxSample.MixProject do
     ]
   end
 
-    defp rustler_crates() do
+  defp rustler_crates() do
     [rustphxsampleweb_samplecontroller: [
       path: "native/rustphxsampleweb_samplecontroller",
-      mode: (if Mix.env == :prod, do: :release, else: :debug),
+      mode: rustc_mode(Mix.env)
     ]]
   end
+
+  defp rustc_mode(:prod), do: :release
+  defp rustc_mode(_), do: :debug
 end
