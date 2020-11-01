@@ -1,0 +1,16 @@
+[package]
+name = "rustphxsampleweb_usercontroller"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "rustphxsampleweb_usercontroller"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+rustler = "0.21.1"
+lazy_static = "1.0"
+diesel = { version = "1.4.4", features = ["postgres"] }
+dotenv = "0.15.0"

@@ -63,7 +63,12 @@ defmodule RustPhxSample.MixProject do
     [rustphxsampleweb_samplecontroller: [
       path: "native/rustphxsampleweb_samplecontroller",
       mode: rustc_mode(Mix.env)
-    ]]
+    ],
+    rustphxsampleweb_usercontroller: [
+      path: "native/rustphxsampleweb_usercontroller",
+      mode: rustc_mode(Mix.env)
+    ]
+    ]
   end
 
   defp rustc_mode(:prod), do: :release
