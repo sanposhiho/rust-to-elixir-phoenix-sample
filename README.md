@@ -1,4 +1,15 @@
 # RustPhxSample
+Rustler/Elxiir/Phoenixを使用してRustでWebアプリケーションを開発するサンプルリポジトリ
+
+ErlangVMの[NIFs](http://erlang.org/doc/tutorial/nif.html)を利用して、Elixir/PhoenixからRustの関数を呼び出している.
+
+Phoenixではルーティング、レスポンスの構築のみを担当し、実際のアプリケーションの動作の本質であるDBへのWriteをRustが行う。ということをしている
+
+詳しい解説は以下のブログ記事を参照
+
+[RustでErlangVM上で動作するWebアプリケーションを開発する](https://sanposhiho.com/posts/rust-to-elixir-phx/)
+
+---
 
 To start your Phoenix server:
 
